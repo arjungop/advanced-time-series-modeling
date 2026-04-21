@@ -1,62 +1,66 @@
-# Time Series Analysis: Network Traffic Prediction
+# Advanced Time Series Modeling Suite
 
 <p align="left">
   <img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python">
+  <img src="https://img.shields.io/badge/PyTorch-Deep_Learning-EE4C2C.svg" alt="PyTorch">
   <img src="https://img.shields.io/badge/Statsmodels-Time_Series-orange.svg" alt="Statsmodels">
   <img src="https://img.shields.io/badge/Machine_Learning-Scikit_Learn-yellow.svg" alt="Scikit-Learn">
 </p>
 
 ## Overview
-An industry-grade time series analysis framework designed for anomaly detection and forecasting of high-volume network and ISP traffic. This repository implements comprehensive data decomposition, rigorous stationarity hypothesis testing, and advanced predictive modeling to optimize network capacity planning and bandwidth allocation.
+An industry-grade, end-to-end framework for **Multivariate Time Series Analysis and Forecasting**. This repository processes high-frequency, massive-scale sensor data (originally 5 million+ points) and applies a rigorous analytical pipeline spanning statistical methodologies, ensemble machine learning, and recurrent neural networks (PyTorch). 
 
-## Key Features
+It is designed to evaluate, analyze, and forecast complex temporal dynamics through multi-horizon predictive modeling.
 
-- **Robust Preprocessing:** Handles non-linear transformations, missing data interpolation, and feature scaling (Standard & Min-Max).
-- **Comprehensive Stationarity Testing:** Implements Augmented Dickey-Fuller (ADF), Kwiatkowski-Phillips-Schmidt-Shin (KPSS), and Phillips-Perron (PP) tests.
-- **Statistical & ML Modeling:** Evaluates classic parametric models (ARIMA) against non-linear ensemble methods (Random Forest Regressor).
-- **Interactive EDA:** Jupyter Notebook environments for immediate visualization of rolling means, decomposition, Autocorrelation (ACF), and Partial Autocorrelation (PACF).
+## Key Capabilities
 
-## Project Structure
+- **Deep Learning Forecasting:** Implements Gated Recurrent Units (GRU) leveraging PyTorch with MPS/GPU acceleration for sequence-to-sequence prediction.
+- **Statistical & ML Modeling:** Evaluates classic parametric models (ARIMA/SARIMAX), non-linear machine learning ensembles (Random Forest Regressor), and volatility models (GARCH).
+- **Rigorous Stationarity Hypotheses:** Advanced implementations of Augmented Dickey-Fuller (ADF), Kwiatkowski-Phillips-Schmidt-Shin (KPSS), and Phillips-Perron (PP) tests.
+- **Advanced Preprocessing:** Handles non-linear transformations, sequence structurization (lookback windows), feature scaling (Standard & Min-Max), and high-frequency resampling.
+- **Automated Diagnostic EDA:** Generates detailed Autocorrelation (ACF), Partial Autocorrelation (PACF), seasonal decomposition, and rolling statistics plots.
+
+## Project Architecture
 
 ```text
-├── data/                   # Target data directory (ignored by git to prevent massive data leaks)
-├── notebooks/              # Jupyter Notebooks for interactive EDA and modeling
-│   ├── TSA_ISP_Traffic.ipynb
-│   └── TSA_Project.ipynb
-├── src/                    # Core Python modules
-│   ├── TSA_ISP_Updated.py  # Specific processing module for specialized ISP traffic
-│   └── TSA_Updated.py      # Core time series processing pipeline
-├── requirements.txt        # Virtual environment dependencies
+├── data/                   # Large-scale datasets and sensor logs (ignored from git)
+├── notebooks/              # Interactive environments for model experimentation
+│   ├── TSA_Project.ipynb   # Comprehensive statistical and Deep Learning (GRU) modeling
+│   └── TSA_ISP_Traffic.ipynb # ISP-specific sub-domain modeling
+├── src/                    # Core, reproducible Python modules
+│   ├── TSA_Updated.py      # Main pipeline script for time series preprocessing & modeling
+│   └── TSA_ISP_Updated.py  # Specialized flow metrics processing pipeline
+├── requirements.txt        # Virtual environment dependency lockfile
 └── README.md
 ```
 
 ## Getting Started
 
-### 1. Environment Setup
+### 1. Environment Initialization
 
 ```bash
 # Clone the repository
-git clone https://github.com/arjungop/network-traffic-forecasting.git
-cd network-traffic-forecasting
+git clone https://github.com/arjungop/advanced-time-series-modeling.git
+cd advanced-time-series-modeling
 
-# Establish a virtual environment
+# Create and activate your virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# Install dependencies
+# Install dependencies (includes PyTorch, Statsmodels, Scikit-Learn, etc.)
 pip install -r requirements.txt
 ```
 
 ### 2. Execution
 
-To run the full suite for ISP traffic natively from the command line:
+To run the primary forecasting pipeline natively:
 
 ```bash
-python src/TSA_ISP_Updated.py
+python src/TSA_Updated.py
 ```
 
-Alternatively, load the interactive environment:
+To explore the PyTorch GRU architecture and deep statistical breakdowns interactively:
 
 ```bash
-jupyter notebook notebooks/TSA_ISP_Traffic.ipynb
+jupyter notebook notebooks/TSA_Project.ipynb
 ```
