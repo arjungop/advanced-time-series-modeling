@@ -36,8 +36,8 @@ An industry-grade time series analysis framework designed for anomaly detection 
 
 ```bash
 # Clone the repository
-git clone https://github.com/arjungop/TSA.git
-cd TSA
+git clone https://github.com/arjungop/network-traffic-forecasting.git
+cd network-traffic-forecasting
 
 # Establish a virtual environment
 python -m venv venv
